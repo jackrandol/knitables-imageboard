@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <title>Knitables
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+
+<div id='main'>
+    <div class='header'>
+    <h1>Knitables</h1>
+
+<div class="uploadError" v-if='errormessage'><p>There was an error with your upload, please be sure to complete all fields.</p></div>
+<form>
+    <input v-model='title' type="text" name="title" placeholder="title">
+    <input v-model='description' type="text" name="description" placeholder="description">
+    <input v-model='username' type="text" name="username" placeholder="username">
+    <input  id='inputFile' @change='handleChange' type="file" name='file' accept='image/*'>
+    <label class='chooseFile' for="inputFile">Choose a file</label>
+    <!-- <input v-model='file' type="file" name="file" placeholder="file"> -->
+
+    <!-- accept='image/*' means we only accept image files, /* means after image can come anything -->
+    <button class='submitButton' @click='handleClick'>submit</button>
+    <!-- when we use @click we have to declare it in methods of our script.js -->
+</form>
+</div>
+
+<transition name="slide">
+    <imagemodal
+    :id='id'
+    @message=
+    'handleMessage'
+    v-if='id'
+    @previmage=
+    'prevImage'
+    @nextimage=
+    'nextImage'
+    @deleteimage=
+    'deleteImage'
+
+    ></imagemodal>
+</transition>
+
+<div class='cardBoard'>
+<div v-for='image in images'>
+
+    <a :href="'#' + image.id">
+    <div class="card">
+        <img class='cardImage' v-bind:src=image.url alt=""></img>
+        <div class='description'>
+        <p class='bold'>{{image.title}}</p>
+        <p>{{image.description}}</p>
+        <p>-{{image.username}}</p>
+    </div>
+    </div>
+    </a>
+
+</div>
+</div>
+<!-- :id refers to the id passed to props array in the component child file  and on the right refers to the Vue instance-->
+<!-- colon means javascript, we can write javascript there to find IDs within objects ex. planets[0].id etc -->
+
+
+<button v-if='showbutton' class='moreButton' @click='moreButton'>More!</button>
+</div>
+<!-- this script tag signals to vue to make the component -->
+<script id='my-component'type="text/x-template">
+    <!-- all elements here must be wrapped in ONE element, like a wrapper around everything
+can just be a div with a thousand tags inside -->
+    <div class="imagemodal">
+
+        <div class="modalNav">
+            <div class='arrowNav'>
+                <div v-if='nextImageExists' class="nextImage" @click='nextImage'><</div>
+                <div v-if='prevImageExists' class="prevImage" @click='prevImage'>></div>
+            </div>
+
+            <div class="xbutton" @click='handleMessage'>X</div>
+
+        </div>
+    <div class='modalImageAndComments'>
+
+        <div class='modalImageAndInfo'>
+            <img  class="modalpic" v-bind:src=url></img>
+            <h2>knitting pattern</h2>
+            <img  class="knitImage" v-bind:src=url></img>
+
+            <div class = 'description'>
+                <!-- <h2>id: {{ id }} </h2> -->
+                <h2>description: {{description}} </h2>
+                <h2>title: {{ title }}</h2>
+                <h2>user: {{username}}</h2>
+            </div>
+
+            <button class='deleteImageButton' @click='deleteImage'>delete image</button>
+        </div>
+
+    <div class='modalComments'>
+
+        <div class='comments'>
+            <p>Comments:</p>
+
+            <div class="completeComment" v-for='comment in comments'>
+                <p>{{comment.comment}}
+                    <div class='usernameFromComment'>-{{comment.username}}</div>
+                </p>
+            </div>
+        </div>
+
+        <form class='commentForm'>
+            <p v-if='commentErrorMessage' class='uploadError'>Please make sure all fields are filled out.</p>
+            <input class="commentinput" v-model='usernamecomment' type="text" name="usernamecomment" placeholder="username">
+            <input class="commentinput" v-model='comment' type="text" name="comment" placeholder="comment">
+            <button class="commentButton" @click='handleComment'>comment</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+    </div>
+
+</script>
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+</body>
+</html>

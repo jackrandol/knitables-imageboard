@@ -1,0 +1,258 @@
+* {
+  font-family: "IBM Plex Mono";
+}
+
+.cardImage {
+  width: 100%;
+  align-self: center;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+  height: 200px;
+  object-fit: cover;
+}
+
+.modalpic {
+  width: 100%;
+}
+
+p {
+  font-size: 10px;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 10px;
+  color: white;
+  font-weight: 200;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+#inputFile {
+  width: 50px;
+  height: 20px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  background-color: yellow;
+  padding: 5px;
+  border-left: black 1px solid;
+  -webkit-box-shadow: 0px 1px 8px -3px rgba(0, 0, 0, 0.75);
+  padding-left: 12px;
+  padding-bottom: 10px;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.uploadError {
+  color: red;
+}
+
+input {
+  border-bottom: 1px black solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin: 3px 0px;
+  background-color: yellow;
+}
+
+label {
+  font-size: 12px;
+  background-color: yellow;
+  padding: 2px 8px;
+}
+
+.submitButton {
+  border: 1px solid black;
+  color: black;
+}
+
+.card {
+  height: 300px;
+  border: black 1px solid;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.moreButton {
+  height: 40px;
+  width: 200px;
+  background-color: yellow;
+  border-left: 1px black solid;
+}
+
+.cardBoard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.imagemodal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0px;
+  top: 50px;
+  height: 80%;
+  width: 60%;
+  overflow: scroll;
+  background-color: tomato;
+  -webkit-box-shadow: 0px 1px 15px -6px rgba(0, 0, 0, 0.75);
+}
+
+.modalImageAndComments {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  height: 90%;
+  width: 90%;
+}
+
+.modalImageAndInfo {
+  width: 50%;
+  margin: 0px 10px;
+  overflow: scroll;
+}
+
+.modalComments {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 80%;
+  padding: 10px;
+  background-color: wheat;
+  word-wrap: break-word;
+}
+
+.usernameFromComment {
+  color: black;
+  font-size: 8px;
+}
+
+.comments {
+  overflow: scroll;
+  background-color: white;
+  padding: 15px;
+  height: 70%;
+}
+
+.commentForm {
+  height: 30%;
+}
+
+.commentinput {
+  background-color: wheat;
+  margin-bottom: 5px;
+}
+
+.modalNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.arrowNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20px;
+  color: white;
+}
+
+.nextImage {
+  cursor: w-resize;
+  margin: 5px;
+}
+
+.prevImage {
+  cursor: e-resize;
+  margin: 5px;
+}
+
+.deleteImageButton {
+  font-size: 12px;
+  background-color: black;
+  padding: 5px 10px;
+  border: 0px;
+  color: white;
+}
+
+.commentButton {
+  font-size: 12px;
+  background-color: black;
+  border: 0px;
+  padding: 3px 10px;
+  color: white;
+}
+
+.xbutton {
+  cursor: default;
+  color: white;
+  margin: 5px;
+  padding-right: 8px;
+}
+
+.knitImage {
+  width: 150px;
+  height: auto;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+  filter: contrast(300%) grayscale(100%);
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 0.5s;
+}
+.slide-enter {
+  transform: translate(-100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
+
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .cardBoard {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    height: 300px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .description {
+    height: 20%;
+    color: white !important;
+  }
+
+  img {
+    width: auto;
+    height: 80%;
+  }
+}
