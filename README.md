@@ -22,10 +22,6 @@ Users can navigate with the left and right arrow inside the modal to click to ne
 
 - Vue.js
 
-## Image Upload
-
-![](https://github.com/jackrandol/knitables-II/blob/master/KnittingProcess.gif "Knitting Time")
-
 ## _For Further Development_
 
 - Right now there is a small mock-up of what the image would look like when converted into a knitable pattern. It is created with some simple css styling but it would be better if the image uploaded was already manipulated, resized and with a diffusion dither, so that they could use it as a knitting pattern.
