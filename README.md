@@ -4,7 +4,7 @@
 
 Knitables-I is a space for knitters to upload patterns or images they would like to make into patterns made with Vue.js.
 
-![](https://github.com/jackrandol/knitables-I/blob/master/ModalTourHighRes.gif "Image Modal Demo")
+![](https://github.com/jackrandol/knitables-imageboard/blob/master/ModalTour.gif "Image Modal Demo")
 
 ### Features
 
