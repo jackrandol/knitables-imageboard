@@ -86,6 +86,7 @@ app.post('/upload', uploader.single('file'), s3.upload, (req, res) => {
   let fileUrl = 'https://s3.amazonaws.com/littlegremlin/' + req.file.filename;
   db.addImage(req.body.username, req.body.title, req.body.description, fileUrl)
     .then(function (response) {
+      console.log('fileURl', fileUrl);
       console.log('response.rows[0]:', response.rows[0]);
       return res.json(response.rows[0]);
     })
